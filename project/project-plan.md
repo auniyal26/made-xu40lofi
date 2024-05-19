@@ -2,7 +2,7 @@
 
 ## Title
 <!-- Give your project a short title. -->
-Impact of climate change on Indian supply chain
+Impact of climate change on Indian imports and exports
 
 ## Main Question
 
@@ -11,8 +11,6 @@ Impact of climate change on Indian supply chain
 1. What all does climate affect?
 2. How much has climate change affected India?
 3. How has climate change affected the imports and exports in India?
-4. Are the effects reversible?
-5. What all can we do to mitigate the effects?
 
 ## Description
 
