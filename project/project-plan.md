@@ -46,15 +46,15 @@ The data shows how much of trade was carried (in Million USD) between the period
 
 <!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
 
-1. *Project Setup and Data Identification* [#1][i1] 
+1. *Project Setup and Data Identification* [#1][issue1] 
     1. Indentify the major question
     2. Find data sources
     3. Select the appropriate data sources
-2. *Data Manipulation* [#2][i2]
+2. *Data Manipulation* [#2][issue2]
     1. Clean the data
     2. Filter the data to remove the columns and rows that are not appropriate for answering the main question
     3. Form a stable Data Pipeline
-3. *Data Analysis and Reporting* [#3][i3]
+3. *Data Analysis and Reporting* [#3][issue3]
     1. Execute initial data exploration and basic visualizations
     2. Conduct data analysis
     3. Address all the research questions
@@ -62,6 +62,6 @@ The data shows how much of trade was carried (in Million USD) between the period
 
 The work packages are dependent on the previous ones and hence **will be worked on in a sequential manner**. As time progresses, steps will be added and/or altered according to the situation at the time
 
-[i1]: https://github.com/auniyal26/made-xu40lofi/issues/1
-[i2]: https://github.com/auniyal26/made-xu40lofi/issues/2
-[i3]: https://github.com/auniyal26/made-xu40lofi/issues/3
+[issue1]: https://github.com/auniyal26/made-xu40lofi/issues/1
+[issue2]: https://github.com/auniyal26/made-xu40lofi/issues/2
+[issue3]: https://github.com/auniyal26/made-xu40lofi/issues/3
