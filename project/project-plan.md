@@ -37,7 +37,7 @@ The first freely-available, analysis-ready, official geospatial dataset to facil
 
 ### Datasource3: Import and Export data of India
 * Metadata URL: https://www.kaggle.com/datasets/ramjasmaurya/exports-and-imports-of-india19972022/data
-* Data URL: https://www.kaggle.com/datasets/ramjasmaurya/exports-and-imports-of-india19972022/data
+* Data URL: https://www.kaggle.com/datasets/ramjasmaurya/exports-and-imports-of-india19972022/data](https://www.kaggle.com/datasets/aditya2803/india-floods-inventory/data
 * Data Type: CSV
 
 The data shows how much of trade was carried (in Million USD) between the period of Jan 1997-July 2022 exploring 250 different countries
