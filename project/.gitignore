@@ -1,0 +1,10 @@
+# Ignore data files
+data/*.csv
+
+# Ignore environment-specific files
+__pycache__/
+*.pyc
+
+# Ignore system files
+.DS_Store
+Thumbs.db
