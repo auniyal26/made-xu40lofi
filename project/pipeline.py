@@ -49,8 +49,10 @@ for file in os.listdir(data_dir):
             print(f"Read {file} with ISO-8859-1 encoding")  # Debug statement
 
         # Perform data cleaning based on file
-
-        if 'india_floods_inventory' in file.lower():
+        if 'mean_temperature_data' in file.lower():
+            # Drop incomplete rows
+            df.dropna(inplace=True)
+        elif 'india_floods_inventory' in file.lower():
             # Drop rows without latitude and longitude values
             df = df.dropna(subset=['Latitude', 'Longitude'])
             # Rename column "Event Souce ID" to "Event Source ID"
@@ -92,7 +94,7 @@ if os.path.exists(ind_import_export_path):
     print("Loaded INDImportExport.csv for replacement.")
 
     # Replace "till now" with "2023" in the entire DataFrame
-    df = df.apply(lambda x: x.replace('till now', '2023') if isinstance(x, str) else x)
+    df = df.applymap(lambda x: x.replace('till now', '2023') if isinstance(x, str) else x)
 
     # Save the modified DataFrame back to CSV
     df.to_csv(ind_import_export_path, index=False, encoding='utf-8')
