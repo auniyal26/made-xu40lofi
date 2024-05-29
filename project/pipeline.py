@@ -49,12 +49,8 @@ for file in os.listdir(data_dir):
             print(f"Read {file} with ISO-8859-1 encoding")  # Debug statement
 
         # Perform data cleaning based on file
-        if 'mean_temperature_data' in file.lower():
-            # Filter rows for 12 months of the year
-            df = df[df['Period'].isin(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])]
-            # Drop incomplete rows
-            df.dropna(inplace=True)
-        elif 'india_floods_inventory' in file.lower():
+
+        if 'india_floods_inventory' in file.lower():
             # Drop rows without latitude and longitude values
             df = df.dropna(subset=['Latitude', 'Longitude'])
             # Rename column "Event Souce ID" to "Event Source ID"
