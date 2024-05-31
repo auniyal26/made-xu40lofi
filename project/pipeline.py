@@ -69,7 +69,7 @@ for file in os.listdir(data_dir):
         df.to_csv(cleaned_csv_path, index=False)
         print(f"Cleaned data saved as CSV: {cleaned_csv_path}")
 
-# Rename cleaned files as specified
+# Rename cleaned files
 rename_mapping = {
     'mean_temperature_data': 'INDTemperature.csv',
     'india_floods_inventory': 'INDFloods.csv',
