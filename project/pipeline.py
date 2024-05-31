@@ -53,8 +53,6 @@ for file in os.listdir(data_dir):
             # Drop incomplete rows
             df.dropna(inplace=True)
         elif 'india_floods_inventory' in file.lower():
-            # Drop rows without latitude and longitude values
-            df = df.dropna(subset=['Latitude', 'Longitude'])
             # Rename column "Event Souce ID" to "Event Source ID"
             df = df.rename(columns={"Event Souce ID": "Event Source ID"})
             # Remove UEI column if exists
