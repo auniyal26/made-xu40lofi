@@ -1,0 +1,90 @@
+pipeline TempPipeline {
+    
+    TempExtractor 
+        -> TempArchiveInterpreter
+        -> TempPicker
+        -> TempTextFileInterpreter
+        -> TempCSVInterpreter
+        -> TempColumnDeleter
+        -> RenameHeaders
+        -> TempTableInterpreter
+        -> TempConverter
+        -> TempBatteryTransform
+        -> TempLoader;
+
+    block TempExtractor oftype HttpExtractor {
+        url: "https://www.mowesta.com/data/measure/mowesta-dataset-20221107.zip";
+    }
+
+    block TempArchiveInterpreter oftype ArchiveInterpreter {
+        archiveType: "zip";
+    }
+
+    block TempPicker oftype FilePicker {
+        path: "/data.csv";
+    }
+
+    block TempTextFileInterpreter oftype TextFileInterpreter {
+
+    }
+
+    block TempCSVInterpreter oftype CSVInterpreter   {
+    delimiter: ";";
+    }
+
+    block TempColumnDeleter oftype ColumnDeleter {
+        delete: [column F, column G, column H, column I];
+    }
+
+    block RenameHeaders oftype CellWriter {
+		at: range A1:F1;
+		write: ['id', 'producer', 'model', 'month', 'temperature', 'battery_temperature'];
+	}
+
+    block TempTableInterpreter oftype TableInterpreter {
+        
+        columns: [
+            "id" oftype ValidTemp,
+            "producer" oftype text,
+            "model" oftype text,
+            "month" oftype integer,
+            "temperature" oftype decimal,
+            "battery_temperature" oftype decimal,
+    
+        ];
+    }
+
+    block TempConverter oftype TableTransformer {
+    inputColumns: ['temperature'];
+    outputColumn: 'temperature';
+    use: CtoF;
+    }
+
+    block TempBatteryTransform oftype TableTransformer {
+    inputColumns: ['battery_temperature'];
+    outputColumn: 'battery_temperature';
+    use: CtoF;
+    }
+
+    block TempLoader oftype SQLiteLoader{
+        table: 'temperatures';
+        file: 'temperatures.sqlite';
+    }
+}
+
+valuetype ValidTemp oftype integer {
+    constraints: [
+        PositiveInt,
+    ];
+}
+
+constraint PositiveInt oftype RangeConstraint {
+    lowerBound: 0;
+    lowerBoundInclusive: true;
+}
+
+transform CtoF   {
+    from Celsius oftype decimal;
+    to Fahrenheit oftype decimal;
+    Fahrenheit: (Celsius * 9/5) + 32;
+}
