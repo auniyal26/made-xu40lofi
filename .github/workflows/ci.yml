@@ -23,15 +23,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install kaggle pandas
 
-    - name: Mock Kaggle API and run tests
+    - name: Set up Kaggle credentials
       run: |
-        # Mock Kaggle API to avoid downloading real datasets during CI
-        echo "Mocking Kaggle API..."
-        mkdir -p data
-        echo "date,temp" > data/INDTemperature.csv
-        echo "date,event" > data/INDFloods.csv
-        echo "year,export,import" > data/INDImportExport.csv
+        mkdir -p ~/.kaggle
+        echo "{\"username\":\"${{ secrets.KAGGLE_USERNAME }}\",\"key\":\"${{ secrets.KAGGLE_KEY }}\"}" > ~/.kaggle/kaggle.json
+        chmod 600 ~/.kaggle/kaggle.json
 
-        # Run the tests
-        chmod +x tests.sh
-        ./tests.sh
+    - name: Run pipeline and tests
+      run: |
+        chmod +x /project/pipeline.sh
+        /project/pipeline.sh
+        chmod +x /project/tests.sh
+        /project/tests.sh
