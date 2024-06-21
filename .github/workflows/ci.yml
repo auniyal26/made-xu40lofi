@@ -29,9 +29,14 @@ jobs:
         echo "{\"username\":\"alankaruniyal\",\"key\":\"0bbd5a8f79f781ba3fcf814f85d72d48\"}" > ~/.kaggle/kaggle.json
         chmod 600 ~/.kaggle/kaggle.json
 
-    - name: Run pipeline and tests
-      run: |
-        chmod +x /project/pipeline.sh
-        /project/pipeline.sh
-        chmod +x /project/tests.sh
-        /project/tests.sh
+    - name: Make pipeline.sh executable
+      run: chmod +x project/pipeline.sh
+
+    - name: Make tests.sh executable
+      run: chmod +x project/tests.sh
+
+    - name: Run pipeline
+      run: project/pipeline.sh
+
+    - name: Run tests
+      run: project/tests.sh
