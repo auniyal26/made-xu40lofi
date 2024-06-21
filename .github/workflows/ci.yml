@@ -38,5 +38,5 @@ jobs:
     - name: Run pipeline
       run: ./project/pipeline.sh
 
-    - name: Run tests
+    - name: Verify output files
       run: ./project/tests.sh
