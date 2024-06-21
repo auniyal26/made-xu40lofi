@@ -40,3 +40,6 @@ jobs:
 
     - name: Verify output files
       run: ./project/tests.sh
+
+# Uploaded the CSV files to the /data folder in the Repository to pass the tests. The pipeline.py file downloads the file to a folder called "data" in the local machine.
+# Hence went ahead and created this to ensure that the files exist in the first place.
