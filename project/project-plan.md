@@ -8,9 +8,8 @@ A study of climate change in India
 
 <!-- Think about one main question you want to answer based on the data. -->
 
-1. What all does climate affect?
-2. How has climate change affected India?
-3. Are the effects reversible?
+1. How much has climate change affected India?
+3. Has trade been impacted because of this?
 
 ## Description
 
