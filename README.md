@@ -1,8 +1,5 @@
-# Project Plan
+# A study of climate change in India
 
-## Title
-
-A study of climate change in India
 
 ## Main Question
 
